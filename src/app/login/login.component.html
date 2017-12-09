@@ -1,0 +1,28 @@
+<body>
+  <br>
+<form class='login-form' ngNativeValidate #captchaProtectedForm="ngForm" (ngSubmit)="login(email.value,password.value)">
+  <div class="flex-row">
+    <input id="username" #email class='lf--input' placeholder='Email' type='email' required>
+  </div>
+  <div class="flex-row">
+    <input id="password" #password class='lf--input' placeholder='Password' type='password' required>
+  </div>
+
+  <!-- Code for captcha begins here -->
+  <re-captcha [(ngModel)]="formModel.captcha" name="captcha" required 
+  siteKey="6LeLUDwUAAAAANGQZ0Jabww1QkJcLjqdzX4Ws-E-" #captchaControl="ngModel"></re-captcha>
+  <!-- <div [hidden]="captchaControl.valid || captchaControl.pristine" class="error">Captcha must be solved</div> -->
+  <div [hidden]="!captchaControl.valid" class="success">Captcha is valid</div>
+  <div [hidden]="captchaProtectedForm.form.valid" class="error">Captcha Must be filled</div>
+  <!-- <a (click)="formModel.captcha = ''">Reset Captcha</a> -->
+  <!-- And ends here -->
+  <br>
+  <input  [disabled]="!captchaProtectedForm.form.valid" class='lf--submit' type='submit' value='LOGIN'> <br>
+  <input class='lf--signup' [routerLink]="['/signup']" type='button' value='SIGN UP'>
+  <br>
+  <a class="lf--forgot" [routerLink]="['/forgetPassword']">Forgot Password</a>
+ 
+</form>
+
+<br>
+</body>

@@ -1,0 +1,13 @@
+<body>
+  <br>
+  <h1 style="text-align: center;">Sign Up</h1>
+  <form id="form" ngNativeValidate >
+
+  <input #name type="text" placeholder="NAME" required>
+  <input #email type="email" placeholder="E-MAIL" required>
+  <input #password type="password" placeholder="PASSWORD" required>
+  <input #confirm type="password" placeholder="CONFIRM PASSWORD" required>
+  <input id="submit" type="button" (click)="signup(name.value,email.value,password.value,confirm.value)" value="GO !">
+  </form>
+
+</body>

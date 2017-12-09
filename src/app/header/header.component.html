@@ -1,0 +1,31 @@
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Raleway');
+</style>
+<header>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/RecaptchaLogo.svg/2000px-RecaptchaLogo.svg.png">
+  <h1>Recaptcha</h1>
+</header>
+<ul>
+  <ng-template [ngIf]="!service.isLoggedIn()">
+    <li>
+      <a [routerLink]="['/login']">
+        <span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Login</a>
+    </li>
+    <li>
+      <a [routerLink]="['/signup']">
+        <span class="glyphicon glyphicon-new-window"></span>&nbsp;&nbsp;Sign Up</a>
+    </li>
+    </ng-template>
+    <ng-template [ngIf]="service.isLoggedIn()">
+    <li>
+      <a [routerLink]="['/dashboard']">
+        <span class="glyphicon glyphicon-dashboard"></span>&nbsp;&nbsp;Dashboard
+      </a>
+    </li>
+    <li>
+      <a (click)="logout()">
+        <span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;Log Out
+      </a>
+    </li>
+    </ng-template>
+</ul>

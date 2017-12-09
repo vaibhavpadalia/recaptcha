@@ -1,0 +1,65 @@
+<body>
+  <br>
+  <h1 style="text-align:center;">Dashboard</h1>
+  <div class="tabbed">
+    <input type="radio" name="tabs" id="tab-nav-1" checked>
+    <label for="tab-nav-1">Welcome</label>
+    <input type="radio" name="tabs" id="tab-nav-2">
+    <label for="tab-nav-2">About</label>
+    <input type="radio" name="tabs" id="tab-nav-3">
+    <label for="tab-nav-3">Verify Email</label>
+    <input type="radio" name="tabs" id="tab-nav-4">
+    <label for="tab-nav-4">Change Password</label>
+    <div class="tabs">
+      <div>
+        <h2>Welcome</h2>
+        <h3>Hello, {{this.name}} </h3>
+        <p>This is an example about how to use recaptcha and verify email addresses while logging in !</p>
+        <p *ngIf="this.verified === 'No'" style="color: red;">You haven't verified your email address. Go to 'Verify Email' tab. </p>
+        <p *ngIf="this.verified === 'Yes'" style="color:rgb(39, 202, 39)">You have verified your email address.</p>
+      </div>
+      <div>
+      <h2>About</h2>
+      <p>reCAPTCHA is a free service that protects your website from spam and abuse. reCAPTCHA uses an advanced risk analysis engine
+        and adaptive CAPTCHAs to keep automated software from engaging in abusive activities on your site. It does this while letting
+        your valid users pass through with ease. </p>
+      <p>reCAPTCHA offers more than just spam protection. Every time our CAPTCHAs are solved, that human effort helps digitize text,
+        annotate images, and build machine learning datasets. This in turn helps preserve books, improve maps, and solve hard AI
+        problems.
+      </p>
+      <p>
+        For the visually impaired, reCAPTCHA provides an audio CAPTCHA option. Your legitimate users will find our regular audio
+        CAPTCHAs easy to solve. Bots on the other hand will get a much harder audio CAPTCHA designed to block them.
+      </p>
+      <p>ts and defends reCAPTCHA is built for security. Armed with state of the art technology, it always stays at the forefront
+        of spam and abuse fighting trends. reCAPTCHA is on guard for you, so you can rest easy.</p>
+      </div>
+      <div>
+        <h2>Verify Email</h2>
+        <br>
+        <p *ngIf="this.verified==='No'" style="color:red;">
+          Enter the verification code: <br><br>
+          <input style="color: black;" type="text" placeholder="Enter verification code" #verify required /> <br><br>
+          <input class="btn btn-success" (click)="checkVerification(verify.value)" type="button" value="Submit" />
+        </p>
+        <p *ngIf="this.verified ==='Yes'" style="color: rgb(55, 226, 55)">
+          Your email has been verified !
+        </p>
+      </div>
+      <div>
+        <h2>Change Password</h2>
+        <form ngNativeValidate>
+        Old Password:
+        <input style="color: black;" type="password" #oldPassword required> <br><br>
+        New Password:
+        <input style="color: black;" type="password" #newPassword required> <br><br>
+        Confirm new Password:
+        <input style="color: black;" type="password" #confirmPassword required> <br><br>
+        <button class="btn btn-success" 
+        (click)="changePassword(oldPassword.value,newPassword.value,confirmPassword.value)">Submit</button>
+        </form>
+        </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.6/prefixfree.min.js"></script>
+</body>
