@@ -158,7 +158,7 @@ exports.changePassword = (req, res) => {
 exports.resetPassword = (req, res) => {
     console.log('In change Password');
     User.findOne({ email: req.body.email }, (error, user) => {
-        if (error) {
+        if (error || user === null) {
             res.json({
                 success: false,
                 error: error
