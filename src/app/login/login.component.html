@@ -10,7 +10,7 @@
 
   <!-- Code for captcha begins here -->
   <re-captcha [(ngModel)]="formModel.captcha" name="captcha" required 
-  siteKey="6LeLUDwUAAAAANGQZ0Jabww1QkJcLjqdzX4Ws-E-" #captchaControl="ngModel"></re-captcha>
+  siteKey="SITE KEY" #captchaControl="ngModel"></re-captcha>
   <!-- <div [hidden]="captchaControl.valid || captchaControl.pristine" class="error">Captcha must be solved</div> -->
   <div [hidden]="!captchaControl.valid" class="success">Captcha is valid</div>
   <div [hidden]="captchaProtectedForm.form.valid" class="error">Captcha Must be filled</div>
